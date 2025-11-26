@@ -1,0 +1,236 @@
+/* ============================================
+   Generations of the Whistle — Premium Forest
+   Palette A (Forest Green) style sheet
+   Uploaded file reference: /mnt/data/GENERATIONS OF-1.docx
+   ============================================ */
+
+/* ---------- design tokens ---------- */
+:root{
+  --bg: #fbfbf8;                /* warm off-white */
+  --panel: #ffffff;             /* cards / panels */
+  --text: #0f1a17;              /* deep charcoal */
+  --muted: #667064;             /* subdued text */
+  --accent: #1f5f46;            /* forest green (primary) */
+  --accent-2: #2f7a57;          /* lighter green */
+  --gold: #c9a24a;              /* warm accent */
+  --soft: rgba(31,95,70,0.08);  /* soft accent background */
+  --glass: rgba(255,255,255,0.6);
+  --radius: 14px;
+  --max-width: 1200px;
+  --pad: 22px;
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  --ease: cubic-bezier(.22,.9,.33,1);
+  --shadow-1: 0 6px 24px rgba(11,25,18,0.06);
+  --shadow-2: 0 10px 40px rgba(11,25,18,0.08);
+}
+
+/* ---------- reset & layout ---------- */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:var(--font-sans);
+  color:var(--text);
+  background:linear-gradient(180deg, var(--bg), #f3f6f2 500px);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.6;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.container{
+  max-width:var(--max-width);
+  margin:0 auto;
+  padding:0 var(--pad);
+}
+
+/* ---------- header ---------- */
+.site-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  padding:18px 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(250,251,249,0.85));
+  border-bottom:1px solid rgba(16,24,20,0.04);
+  position:sticky;
+  top:0;
+  z-index:120;
+  backdrop-filter: saturate(1.05) blur(4px);
+}
+
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit}
+.logo-img{
+  height:52px; width:auto; display:block; object-fit:contain; border-radius:8px;
+  box-shadow:0 6px 18px rgba(31,95,70,0.06);
+}
+.brand-text .title{font-size:18px;font-weight:800;letter-spacing:0.2px}
+.brand-text .subtitle{font-size:13px;color:var(--muted);margin-top:2px}
+
+/* ---------- nav ---------- */
+.nav{display:flex;gap:14px;align-items:center}
+.nav a{
+  text-decoration:none;color:var(--text);font-weight:600;padding:8px 12px;border-radius:10px;transition:all .18s var(--ease);
+  display:inline-flex;align-items:center;gap:8px;
+}
+.nav a:hover{background:var(--soft);color:var(--accent-2)}
+.nav a[aria-current="page"]{background:linear-gradient(90deg, rgba(47,122,87,0.06), rgba(31,95,70,0.03)); color:var(--accent)}
+
+/* mobile toggle */
+.nav-toggle{display:none;background:none;border:0;font-size:22px;padding:6px 10px}
+@media (max-width:920px){
+  .nav{display:none}
+  .nav-toggle{display:block}
+  .nav.show{display:flex;flex-direction:column;position:absolute;right:16px;top:72px;padding:18px;background:var(--panel);box-shadow:var(--shadow-2);border-radius:12px}
+}
+
+/* ---------- hero (full-bleed) ---------- */
+.hero-banner{
+  width:100%;
+  min-height:64vh;
+  display:flex;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+  border-bottom-left-radius:28px;
+  border-bottom-right-radius:28px;
+  margin-bottom:28px;
+  box-shadow: 0 12px 40px rgba(11,25,18,0.03);
+}
+
+/* set a calm gradient overlay and an optional image */
+.hero-banner::before{
+  content:"";
+  position:absolute;inset:0;
+  background: linear-gradient(180deg, rgba(31,95,70,0.22), rgba(20,50,38,0.18));
+  mix-blend-mode:multiply;
+  pointer-events:none;
+}
+
+/* hero background image: replace the URL with your image path */
+.hero-banner .hero-bg{
+  position:absolute;inset:0;background-size:cover;background-position:center;filter:contrast(.95) saturate(.95);
+  transform-origin:center;will-change:transform;transition:transform .8s var(--ease);
+}
+/* Example: set inline or in CSS:
+   .hero-banner .hero-bg{ background-image: url("images/Sheepdog/IMG-20251124-WA0039.jpg"); }
+*/
+
+.hero-content{
+  position:relative;z-index:10;
+  padding:80px 0;
+  width:100%;
+  max-width:900px;
+  margin-left:var(--pad);
+}
+
+.hero-content h1{
+  color: #fff;
+  font-size:48px;
+  margin:0 0 12px;
+  line-height:1.02;
+  letter-spacing:-0.6px;
+  text-shadow:0 8px 30px rgba(6,16,12,0.45);
+}
+
+.hero-sub{
+  color: rgba(255,255,255,0.92);
+  font-size:18px;margin:0 0 20px;max-width:60ch;
+  text-shadow:0 6px 20px rgba(6,16,12,0.28);
+}
+
+/* hero CTA group */
+.hero-buttons{display:flex;gap:14px}
+.btn-lg{
+  background: linear-gradient(180deg,var(--accent),var(--accent-2));
+  color: white;padding:14px 22px;border-radius:12px;font-weight:800;text-decoration:none;box-shadow:0 10px 30px rgba(31,95,70,0.12);
+  transition:transform .22s var(--ease), box-shadow .22s var(--ease), opacity .22s var(--ease);
+}
+.btn-lg:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(31,95,70,0.18)}
+.ghost-lg{background:transparent;border:2px solid rgba(255,255,255,0.22);color:white}
+
+/* ---------- intro / section headers ---------- */
+.section-hero-divider{
+  height:8px;width:100%;background:linear-gradient(90deg,var(--accent),var(--gold));border-radius:50px;margin:8px 0 28px;
+}
+
+.intro{padding:56px 0 36px}
+.section-title{font-size:30px;margin:0 0 8px;color:var(--text);font-weight:800}
+.section-sub{color:var(--muted);margin:0 0 20px;max-width:64ch}
+
+/* ---------- modern cards ---------- */
+.cards-modern{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+.card-modern{
+  background:linear-gradient(180deg, #fff, #fbfdfb);
+  border-radius:14px;padding:24px;border:1px solid rgba(12,18,14,0.04);box-shadow:var(--shadow-1);text-decoration:none;color:inherit;
+  transition:transform .22s var(--ease), box-shadow .22s var(--ease);
+}
+.card-modern h3{margin:0 0 8px;font-size:20px}
+.card-modern p{margin:0;color:var(--muted)}
+.card-modern:hover{transform:translateY(-6px);box-shadow:0 24px 60px rgba(11,25,18,0.08)}
+
+/* ---------- article layout ---------- */
+.article-wrap{padding:40px 0}
+.article{
+  background:linear-gradient(180deg,#ffffff,#fcfffb);padding:36px;border-radius:16px;border:1px solid rgba(10,20,16,0.04);
+  box-shadow:0 10px 30px rgba(11,25,18,0.03);
+}
+.article h1{font-size:32px;margin-top:0}
+.byline{color:var(--muted);font-size:13px;margin-bottom:10px}
+.lede{font-size:18px;color:#23302b;margin-bottom:20px}
+
+/* media rows */
+.media-row{display:flex;gap:22px;align-items:flex-start;margin:22px 0}
+.media-row figure{margin:0}
+.media-row img{width:380px;height:240px;object-fit:cover;border-radius:12px;box-shadow:0 14px 40px rgba(10,20,16,0.06)}
+@media (max-width:880px){.media-row{flex-direction:column}.media-row img{width:100%;height:auto}}
+
+/* list styles */
+ol,ul{margin:0 0 18px 20px;color:var(--muted)}
+li{margin:8px 0}
+
+/* blockquote */
+.quote{border-left:4px solid rgba(201,162,74,0.18);padding-left:14px;color:var(--muted);font-style:italic;margin:26px 0;background:linear-gradient(180deg, rgba(241,236,226,0.3), transparent);border-radius:8px;padding:18px}
+
+/* meta / small */
+.meta{color:var(--muted);font-size:13px;margin-top:14px}
+
+/* embed video */
+.embed{position:relative;padding-bottom:56%;height:0;overflow:hidden;border-radius:14px;box-shadow:var(--shadow-1);margin-top:14px}
+.embed iframe{position:absolute;left:0;top:0;width:100%;height:100%;border:0}
+
+/* ---------- footers ---------- */
+.site-footer{padding:36px 0;text-align:center;color:var(--muted);border-top:1px solid rgba(10,20,16,0.04);margin-top:60px}
+
+/* ---------- nice section dividers ---------- */
+.section-divider{
+  height:1px;margin:36px 0;background:linear-gradient(90deg, rgba(31,95,70,0.06), rgba(201,162,74,0.02), rgba(31,95,70,0.06));
+  border-radius:4px;
+}
+
+/* ---------- gentle entrance animations ---------- */
+.fade-in{
+  opacity:0;transform:translateY(8px);transition:opacity .6s var(--ease), transform .6s var(--ease);
+}
+.fade-in.visible{opacity:1;transform:none}
+
+/* ---------- focus & accessibility ---------- */
+a:focus, button:focus{outline:3px solid rgba(31,95,70,0.12);outline-offset:3px;border-radius:8px}
+
+/* ---------- responsive tweaks ---------- */
+@media (max-width:980px){
+  .hero-content{padding:40px 0}
+  .hero-content h1{font-size:34px}
+  .btn-lg{padding:12px 18px}
+}
+@media (max-width:640px){
+  .hero-content h1{font-size:26px}
+  .brand-text .title{font-size:16px}
+  .brand-text .subtitle{font-size:12px}
+  .container{padding:0 14px}
+}
+
+/* ---------- utility helpers ---------- */
+.kicker{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(31,95,70,0.08);color:var(--accent);font-weight:700;font-size:12px;margin-bottom:10px}
+.small{font-size:13px;color:var(--muted)}
+.center{display:flex;align-items:center;justify-content:center}
