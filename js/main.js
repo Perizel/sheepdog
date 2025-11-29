@@ -16,6 +16,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  const nav = document.querySelector('.nav');
+const toggle = document.querySelector('.nav-toggle');
+
+toggle.addEventListener('click', () => {
+  nav.classList.toggle('open');
+});
+
+
   // ESC closes all menus + lightbox
   document.addEventListener("keydown", e => {
     if (e.key === "Escape") {
