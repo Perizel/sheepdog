@@ -71,8 +71,10 @@ body.dark .nav a {
   max-width:var(--max-width);
   margin:0 auto;
   padding:0 var(--pad);
-  overflow-x: hidden;  /* prevent horizontal scroll */
+  /* overflow-x: hidden;  REMOVE THIS */
+  overflow-x: visible;
 }
+
 
 /* Header */
 .site-header{
@@ -87,8 +89,10 @@ body.dark .nav a {
   z-index:120;
   backdrop-filter:saturate(1.05) blur(4px);
   max-width:100%;
-  overflow-x:hidden;
+  /* overflow-x:hidden; REMOVE THIS */
+  overflow-x: visible;
 }
+
 
 .brand{
   display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit

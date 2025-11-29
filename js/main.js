@@ -11,17 +11,13 @@ document.addEventListener("DOMContentLoaded", () => {
       const id = btn.getAttribute("aria-controls");
       const nav = document.getElementById(id);
       if (!nav) return;
+
       nav.classList.toggle("open");
       btn.setAttribute("aria-expanded", nav.classList.contains("open"));
     });
   });
 
-  const nav = document.querySelector('.nav');
-const toggle = document.querySelector('.nav-toggle');
-
-toggle.addEventListener('click', () => {
-  nav.classList.toggle('open');
-});
+  // (Removed duplicate toggle code — this fixes your mobile menu)
 
 
   // ESC closes all menus + lightbox
